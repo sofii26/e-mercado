@@ -7,8 +7,7 @@ document.addEventListener("DOMContentLoaded", function(){
      let inputEmail = document.getElementById("inputEmail");
      let inputPassword = document.getElementById("inputPassword");
      let campos = true;
-
-     if (inputEmail.value === "") {
+         if (inputEmail.value === "") {
          inputEmail.classList.add("invalido");
          campos = false;
      }
@@ -23,10 +22,12 @@ document.addEventListener("DOMContentLoaded", function(){
          inputPassword.classList.remove("invalido");
      }
      if (campos) {
+         localStorage.setItem('UsuarioIn', JSON.stringify({email: inputEmail.value}));
          document.getElementById("ingreso").innerHTML = window.location = "inicio.html";
      }
      else { 
          alert("Falta rellenar campos");
      }
  }
-)});
+ )});
+
