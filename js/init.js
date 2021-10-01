@@ -52,4 +52,8 @@ document.addEventListener("DOMContentLoaded", function(e){
    HtmlUser.innerHTML = HtmlUser.innerHTML + UsuarioIn.email;
 
  }
-});
+})
+function cerrar() {
+  localStorage.removeItem('UsuarioIn');
+}
+

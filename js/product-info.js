@@ -34,27 +34,78 @@ document.addEventListener("DOMContentLoaded", function (e) {
             let productCost = document.getElementById("productCost");
             let productVendidos = document.getElementById("vendidos");
             let productCategory = document.getElementById("productCategory");
-            let productRelated = document.getElementById("relatedProducts");
+
 
             productNameHTML.innerHTML = product.name;
             productDescriptionHTML.innerHTML = product.description;
-            productCost.innerHTML = product.cost;
+            productCost.innerHTML = product.cost + " " + product.currency;
             productVendidos.innerHTML = product.soldCount;
             productCategory.innerHTML = product.category;
-            productRelated.innerHTML = product.relatedProducts;
 
             mostrarInfo(product.images);
         }
+
+
     });
 });
 
-var comentarios;
-function showComentarios(array){ 
-    let listado= "";
-    for(let i = 0; i < array.length; i++){ 
-        let comments = array[i]; 
+
+var prodsRelacionados= [];
+function relatedProducts(array) {
+    let lista = "";
+
+    
+        for (let i = 0; i < product.relatedProducts.length; i++) {
+            let indice = product.relatedProducts[i]
+            
+            
+                let productos = array[indice];
+                {
+                    lista += `
+        <a href="product-info.html" class="list-group-item list-group-item-action">        
+        <h4 style ="color: crimson; font-weight: bold"> ` + productos.name + ` </h2> 
+        <img src="` + productos.imgSrc + `" class="imagencitas"> 
+        <p> ` + "<br>" + productos.description + `</p>
+       
+             
+        `
+                }
+            
         
-        if (comments.score == 1) { listado += `
+    }
+
+
+
+    document.getElementById("relatedProducts").innerHTML = lista;
+
+
+}
+
+
+
+document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(PRODUCTS_URL)
+        .then(function (resultado) {
+            if (resultado.status === "ok") {
+                prodsRelacionados = resultado.data;
+                relatedProducts(prodsRelacionados);
+
+            }
+        });
+});
+
+
+
+
+var comentarios;
+function showComentarios(array) {
+    let listado = "";
+    for (let i = 0; i < array.length; i++) {
+
+        let comments = array[i];
+
+        if (comments.score == 1) {
+            listado += `
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <span class="fa fa-star checked"></span>
@@ -64,7 +115,8 @@ function showComentarios(array){
         <span class="fa fa-star"></span>`
 
         }
-        if (comments.score == 2) { listado += `
+        if (comments.score == 2) {
+            listado += `
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <span class="fa fa-star checked"></span>
@@ -74,7 +126,8 @@ function showComentarios(array){
         <span class="fa fa-star"></span>`
 
         }
-        if (comments.score == 3) { listado += `
+        if (comments.score == 3) {
+            listado += `
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <span class="fa fa-star checked"></span>
@@ -82,8 +135,9 @@ function showComentarios(array){
         <span class="fa fa-star checked"></span>
         <span class="fa fa-star"></span>
         <span class="fa fa-star"></span> `
-    }
-    if (comments.score == 4) { listado += `
+        }
+        if (comments.score == 4) {
+            listado += `
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <span class="fa fa-star checked"></span>
@@ -93,8 +147,9 @@ function showComentarios(array){
         <span class="fa fa-star"></span>
     
     `
-    }
-    if (comments.score == 5) { listado += `
+        }
+        if (comments.score == 5) {
+            listado += `
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <span class="fa fa-star checked"></span>
@@ -102,8 +157,8 @@ function showComentarios(array){
         <span class="fa fa-star checked"></span>
         <span class="fa fa-star checked"></span>
         <span class="fa fa-star checked"></span> `
-    }   
-    
+        }
+
 
 
         listado += `
@@ -116,23 +171,22 @@ function showComentarios(array){
        </div>
        </div>
        `
-    
-         
+
+
         document.getElementById("comentarios").innerHTML = listado;
-    
+
     }
 }
-    
-    
-    document.addEventListener("DOMContentLoaded", function (e) { 
-    getJSONData(PRODUCT_INFO_COMMENTS_URL) 
-    .then(function(resultado) {
-        if(resultado.status === "ok")
-        {
-            comentarios = resultado.data;
-            showComentarios(comentarios);
-    
-        }
-    });
-    });
+
+
+document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(PRODUCT_INFO_COMMENTS_URL)
+        .then(function (resultado) {
+            if (resultado.status === "ok") {
+                comentarios = resultado.data;
+                showComentarios(comentarios);
+
+            }
+        });
+});
 
