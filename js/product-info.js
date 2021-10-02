@@ -8,20 +8,49 @@ function mostrarInfo(array) {
 
     let imagencita = "";
 
-    for (let i = 0; i < array.length; i++) {
-        let imageSrc = array[i];
 
-        imagencita += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
-            </div>
-        </div>
+
+    imagencita += `
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="`+ array[0] + `" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="`+ array[1] + `" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="`+ array[2] + `" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+    <img src="`+ array[3] + `" class="d-block w-100" alt="...">
+  </div>
+  <div class="carousel-item">
+  <img src="`+ array[4] + `" class="d-block w-100" alt="...">
+</div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+      
         `
 
-        document.getElementById("prodImagesGallery").innerHTML = imagencita;
-    }
+    document.getElementById("prodImagesGallery").innerHTML = imagencita;
 }
+
 
 
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -50,18 +79,18 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 
 
-var prodsRelacionados= [];
+var prodsRelacionados = [];
 function relatedProducts(array) {
     let lista = "";
 
-    
-        for (let i = 0; i < product.relatedProducts.length; i++) {
-            let indice = product.relatedProducts[i]
-            
-            
-                let productos = array[indice];
-                {
-                    lista += `
+
+    for (let i = 0; i < product.relatedProducts.length; i++) {
+        let indice = product.relatedProducts[i]
+
+
+        let productos = array[indice];
+        {
+            lista += `
         <a href="product-info.html" class="list-group-item list-group-item-action">        
         <h4 style ="color: crimson; font-weight: bold"> ` + productos.name + ` </h2> 
         <img src="` + productos.imgSrc + `" class="imagencitas"> 
@@ -69,9 +98,9 @@ function relatedProducts(array) {
        
              
         `
-                }
-            
-        
+        }
+
+
     }
 
 
