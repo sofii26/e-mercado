@@ -156,3 +156,19 @@ margin-left: 200;
 .checked {
   color: yellow;
 }
+
+#seleccionEnvio{
+  color:black;
+}
+
+#seleccionEnvio:hover {
+  color:steelblue;
+}
+
+#seleccionPago{
+  color:black;
+}
+
+#seleccionPago:hover {
+  color:steelblue;
+}

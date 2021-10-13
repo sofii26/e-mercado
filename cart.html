@@ -39,26 +39,101 @@
       <a class="py-2 d-none d-md-inline-block" href="inicio.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>    
+      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown">
-        <button class="btn btn-dark dropdown-toggle" id ="NombreDeUsuario", style= "color:white" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-dark dropdown-toggle" id="NombreDeUsuario" , style="color:white" type="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Usuario:
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
           <a class="dropdown-item" href="cart.html">Ver carrito</a>
-          <a class="dropdown-item"  onclick="cerrar()" href="index.html">Cerrar sesión</a>            
+          <a class="dropdown-item" onclick="cerrar()" href="index.html">Cerrar sesión</a>
         </div>
-    </div>
+      </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
+  <div class="text-center p-4">
+    <h2>Carrito</h2>
+
+  </div>
+  <div class="container">
+
+    <main id="items" class="col-sm-8 row"></main>
+
+    <div class="col-sm-4 float-right align-self-end">
+
+      
+      <ul id="carrito" class="list-group"></ul>
+
+      <div>
+
+        <h5>Método de envío</h5>
+        <hr>
+        <p>País:  <select class="custom-select" style="width:200px;" aria-label=".form-select-lg example">
+
+            <option value="1">Uruguay</option>
+            <option value="2">Argentina</option>
+            <option value="3">Colombia</option>
+          </select></p>
+        <p>Dirección: <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"></p>
+
+        <p>
+          <a id="seleccionEnvio" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+            aria-controls="collapseExample">
+            Seleccionar tipo de envío
+          </a>
+
+        </p>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            <div>
+              <p><input type="radio" name="envio"> Premium</p>
+              <p><input type="radio" name="envio"> Express</p>
+              <p><input type="radio" name="envio"> Standard</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div>
+        
+        <p>
+          <a id="seleccionPago" data-toggle="collapse" href="#collapseEx" role="button" aria-expanded="false"
+            aria-controls="collapseExample">
+            Seleccionar forma de pago
+          </a>
+
+        </p>
+        <div class="collapse" id="collapseEx">
+          <div class="card card-body">
+            <div>
+              <p><input type="radio" name="pago"> Tarjeta</p>
+              <p><input type="radio" name="pago"> Transferencia bancaria</p>              
+            </div>
+          </div>
+        </div>
+      
+    </div>
+    <hr>
+    <p>Costo de envío: </p>
+    <div id="costoEnvio"></div>
+    
+    <hr>
+    <p class="text-right">Total: <span id="total"></span></p>
+
+    <button id="boton-compra" class="btn btn-success">Realizar compra</button>
+  </div>
+  </div>
+  <div class="row">
+    <div class="row list-group">
+      <div id="art" class="row"></div>
       <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
     </div>
   </div>
+  </div>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
