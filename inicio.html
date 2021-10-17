@@ -14,23 +14,38 @@
     <link href="css/styles.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="site-header sticky-top py-1 bg-dark">
-      <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2 d-none d-md-inline-block" href="inicio.html">Inicio</a>
-        <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        
-        <div class="dropdown">
-          <button class="btn btn-dark dropdown-toggle" id ="NombreDeUsuario", style= "color:white" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Usuario:
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-            <a class="dropdown-item" href="cart.html">Ver carrito</a>
-            <a class="dropdown-item"  onclick="cerrar()" href="index.html">Cerrar sesión</a>            
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark site-header sticky-top py-1">
+      <div class="container-fluid">
+  
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          
+            <div class="container d-flex flex-column flex-md-row justify-content-between">
+            <a class="py-2" aria-current="page" href="inicio.html">Inicio</a>
+            <a class="py-2" href="categories.html">Categorías</a>
+            <a class="py-2" href="products.html">Productos</a>
+            <a class="py-2" href="sell.html">Vender</a>
+            
+            
+            <div class="dropdown">
+              <button class="btn btn-dark dropdown-toggle py-2" id="NombreDeUsuario" , style="color:white" type="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Usuario:
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+                <a class="dropdown-item" href="cart.html">Ver carrito</a>
+                <a class="dropdown-item" onclick="cerrar()" href="index.html">Cerrar sesión</a>
+              </div>
+            </div>
           </div>
-        
+          
+          
+        </div>
+      </div>
     </nav>
     <main role="main">
       <section class="jumbotron text-center">

@@ -34,46 +34,59 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="inicio.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <div class="dropdown">
-        <button class="btn btn-dark dropdown-toggle" id="NombreDeUsuario" , style="color:white" type="button"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Usuario:
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-          <a class="dropdown-item" href="cart.html">Ver carrito</a>
-          <a class="dropdown-item" onclick="cerrar()" href="index.html">Cerrar sesión</a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark site-header sticky-top py-1">
+    <div class="container-fluid">
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+          <div class="container d-flex flex-column flex-md-row justify-content-between">
+          <a class="py-2" aria-current="page" href="inicio.html">Inicio</a>
+          <a class="py-2" href="categories.html">Categorías</a>
+          <a class="py-2" href="products.html">Productos</a>
+          <a class="py-2" href="sell.html">Vender</a>
+          
+          
+          <div class="dropdown">
+            <button class="btn btn-dark dropdown-toggle py-2" id="NombreDeUsuario" , style="color:white" type="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Usuario:
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+              <a class="dropdown-item" href="cart.html">Ver carrito</a>
+              <a class="dropdown-item" onclick="cerrar()" href="index.html">Cerrar sesión</a>
+            </div>
+          </div>
         </div>
+        
+        
       </div>
+    </div>
   </nav>
+  
   <div class="text-center p-4">
     <h2>Carrito</h2>
 
   </div>
   <div class="container">
+    <div class="col-sm-5 col-md-5 col-lg-4 float-right align-self-end">
 
-    <main id="items" class="col-sm-8 row"></main>
 
-    <div class="col-sm-4 float-right align-self-end">
-
-      
-      <ul id="carrito" class="list-group"></ul>
+     
 
       <div>
 
-        <h5>Método de envío</h5>
+        <h5 style="text-align:center">Método de envío</h5>
         <hr>
-        <p>País:  <select class="custom-select" style="width:200px;" aria-label=".form-select-lg example">
+        <p>País: <select class="custom-select" style="width:200px;" aria-label=".form-select-lg example">
 
             <option value="1">Uruguay</option>
             <option value="2">Argentina</option>
-            <option value="3">Colombia</option>
+            <option value="3">Paraguay</option>
           </select></p>
         <p>Dirección: <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"></p>
 
@@ -87,9 +100,9 @@
         <div class="collapse" id="collapseExample">
           <div class="card card-body">
             <div>
-              <p><input type="radio" name="envio"> Premium</p>
-              <p><input type="radio" name="envio"> Express</p>
-              <p><input type="radio" name="envio"> Standard</p>
+              <p><input type="radio" name="envio"> Premium (2-5 días)</p>
+              <p><input type="radio" name="envio"> Express (5-8 días)</p>
+              <p><input type="radio" name="envio"> Standard (12 a 15 días) </p>
             </div>
           </div>
         </div>
@@ -97,7 +110,7 @@
 
 
       <div>
-        
+
         <p>
           <a id="seleccionPago" data-toggle="collapse" href="#collapseEx" role="button" aria-expanded="false"
             aria-controls="collapseExample">
@@ -108,29 +121,32 @@
         <div class="collapse" id="collapseEx">
           <div class="card card-body">
             <div>
-              <p><input type="radio" name="pago"> Tarjeta</p>
-              <p><input type="radio" name="pago"> Transferencia bancaria</p>              
+              <p><input name="pago" type="radio" data-toggle="collapse" data-target=".collapseOne:not(.in)"/> Tarjeta
+              </p>
+              <div class="collapseOne panel-collapse collapse"> <p> Número de tarjeta: </p><input type="text" class="form-control"  aria-describedby="basic-addon3"> </div>
+              <p><input type="radio" name="pago"> Transferencia bancaria</p>
             </div>
           </div>
         </div>
-      
-    </div>
-    <hr>
-    <p>Costo de envío: </p>
-    <div id="costoEnvio"></div>
-    
-    <hr>
-    <p class="text-right">Total: <span id="total"></span></p>
 
-    <button id="boton-compra" class="btn btn-success">Realizar compra</button>
-  </div>
-  </div>
-  <div class="row">
-    <div class="row list-group">
-      <div id="art" class="row"></div>
+      </div>
       <hr>
+      <p>Costo de envío: </p>
+      <div id="costoEnvio"></div>
 
+      <hr>
+      <p class="text-right">Total:
+      <span id="total"></span>
+      </p>
+
+      <button id="boton-compra" class="btn btn-success mb-4">Realizar compra</button>
     </div>
+  </div>
+
+  <div id="art" class="row"></div>
+  <hr>
+
+
   </div>
   </div>
 
