@@ -55,5 +55,9 @@ document.addEventListener("DOMContentLoaded", function(e){
 })
 function cerrar() {
   localStorage.removeItem('UsuarioIn');
+  localStorage.removeItem('Info');
+  localStorage.removeItem('todd');
+  localStorage.removeItem('diane');
 }
+
 

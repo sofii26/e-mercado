@@ -173,3 +173,12 @@ margin-left: 200;
   color:lightcoral;
 }
 
+.nya {
+  display:inline-block;
+}
+
+
+.selected{
+  zoom: 1.3;
+  
+}
