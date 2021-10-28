@@ -75,27 +75,55 @@
       
     <div style=float:center class="mt-3">
       
-      <a href="#" onclick="return false;"><img src="https://i.ibb.co/hMXHcRJ/tod.jpg" crossorigin="anonymous" alt="tod" id="todd" width="200" height="200" class="mr-3"></a>
+      <a href="#" onclick="return false;"><img src="https://i.ibb.co/M9xrxQz/tod.jpg" crossorigin="anonymous" alt="tod" id="todd" width="200" height="200" class="mr-lg-3"></a>
       
       
-      <a href="#" onclick="return false;"><img src="https://i.ibb.co/CzrK4ny/cd627a8e-full.webp" crossorigin="anonymous" alt="cd627a8e-full" id="diane" width="200" height= "200"></a>
-      
-    </div>
-    <div class="text-left mt-3">
-      <br>
-      
-      <span>Nombre y apellidos: </span><input type="text" id="inputnya" class="form-control nya" 
-        > <br> <br>
-      <span>Edad: </span><input type="number" id="inputEdad" max="100" min="18" class="form-control nya"
-         > <br> <br>
-      <span>Teléfono: </span><input type="number" id="inputTelefono" class="form-control nya"
-         > <br> <br>
-      <span>Email: </span><input type="email" id="inputmail" class="form-control nya"  > <br>
-      <br>
-      <button id="submi" class="btn btn-success" > Guardar cambios </button>
+      <a href="#" onclick="return false;" ><img src="https://i.ibb.co/CzrK4ny/cd627a8e-full.webp" crossorigin="anonymous" alt="cd627a8e-full" id="diane" width="200" height= "200"></a>
       
     </div>
-  </div>
+    <br>
+    
+    <button class="btn btn-outline-secondary btn-sm" onclick="eliminarFoto()"> Limpiar </button>
+    
+    
+    <hr>
+    <form class="row g-3 needs-validation" novalidate>
+      <div class="col-md-6">
+        <label for="inputnya" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="inputnya"  required>
+        
+      </div>
+      <div class="col-md-6">
+        <label for="inputEdad" class="form-label">Edad</label>
+        <input type="number" min="18" class="form-control" id="inputEdad" required>
+        <div class="invalid-feedback">
+          Debe ser mayor de edad
+        </div>
+        
+      </div>
+      
+      
+      <div class="col-md-6">
+        <br><label for="inputTelefono" class="form-label">Teléfono</label>
+        <input type="number" class="form-control" id="inputTelefono"  required>
+        
+      </div>
+      <div class="col-md-6">
+        <br><label for="inputmail" class="form-label">Email</label>
+        <input type="email" class="form-control" id="inputmail"  required>
+        <div class="invalid-feedback">
+          Ingrese e-mail válido
+        </div>
+        
+      </div>
+      
+      
+      <div class="col-12">
+        <br>
+        <button class="btn btn-success" id="submi">Guardar cambios</button>
+      </div>
+    </form>
+    
   
  
   <div class="alert fade alert-success" role="alert" id="alertResult">

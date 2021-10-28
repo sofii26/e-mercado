@@ -15,14 +15,27 @@ for(let i = 0; i < array.length; i++){
 // es decir, lo que el usuario escribió en el input.
    
     lista += `
-    <a href="product-info.html" class="list-group-item list-group-item-action">
-    <div class: prodEstilo, style= "margin-left:30px">
-    <h2 style ="color: crimson; font-weight: bold"> ` + productos.name + ` </h2> 
-    <img src="` + productos.imgSrc + `" class="imagencitas"> 
-    <p> ` + "<br>" + 'Descripción: ' + productos.description + `</p>
-    <p> ` + 'Costo: ' + productos.cost + " " + productos.currency + ` </p>
-    <p> ` + 'Vendidos: ' + productos.soldCount + ` </p>
-   </div>
+    
+    
+       <a href="product-info.html" class="list-group-item list-group-item-action col-lg-6 col-md-6 mt-2">
+       
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <img src="` + productos.imgSrc + `" alt="` + productos.description + `" class="img-thumbnail">
+                        </div>
+                        <div class="col">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h4 class="mb-1">`+ productos.name +`</h4>
+                                <p>` + productos.cost + " " + productos.currency + ` </p>
+                            </div>
+                            <p class="mb-1">` + productos.description + `</p>
+                        </div>
+                    </div>
+                    
+                </a>
+                </div>
+                </div>
+            
     `
 }
      }

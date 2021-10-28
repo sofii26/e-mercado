@@ -24,16 +24,16 @@
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-     
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        
-          <div class="container d-flex flex-column flex-md-row justify-content-between">
+
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
           <a class="py-2" aria-current="page" href="inicio.html">Inicio</a>
           <a class="py-2" href="categories.html">Categorías</a>
           <a class="py-2" href="products.html">Productos</a>
           <a class="py-2" href="sell.html">Vender</a>
-          
-          
+
+
           <div class="dropdown">
             <button class="btn btn-dark dropdown-toggle py-2" id="NombreDeUsuario" , style="color:white" type="button"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -46,28 +46,34 @@
             </div>
           </div>
         </div>
-        
-        
+
+
       </div>
     </div>
   </nav>
-  
+
   <br> <br>
+  <div class="text-center p-2">
+    <h2>Productos</h2>
+
+  </div>
+
+  <div class="col-md-6 col-sm-12 mb-1 container">
+    <div class="text-align:center">
+      <input class="form-control" type="search" placeholder="Búsqueda" id="Buscar">
+    </div>
+    <br>
+
+  </div>
+
+
+  <br>
   <div class="row justify-content-end">
     <div class="col-md-6"></div>
     <div class="col-md-6 col-sm-12 mb-1 container">
-      <div class="col">
-        <input class="form-control" type="search" placeholder="Búsqueda" id="Buscar">
-      </div>
-      <br>
       <div class="row container p-0 m-0">
-
-        <div><button id="PrecioDesc" class="btn btn-outline-primary"> Precio orden descendente </button>
-          <button id="PrecioAsc" class="btn btn-outline-primary"> Precio orden ascendente</button>
-          <button id="relevancia" class="btn btn-outline-primary"> Relevancia descendente</button>
-        </div> <br> <br>
         <div class="col">
-          <p class="font-weight-normal text-right my-2">Cant.</p>
+          <p class="font-weight-normal text-right my-2">Precio</p>
         </div>
         <div class="col">
           <input class="form-control" type="number" placeholder="min." id="MinPrecio">
@@ -80,15 +86,24 @@
             <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
             <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
           </div>
-
         </div>
+      </div>
+      <div style="text-align:right" class="mt-2 mr-4">
+        <button id="PrecioDesc" class="btn btn-outline-secondary btn-sm"> Precio orden descendente </button>
+        <button id="PrecioAsc" class="btn btn-outline-secondary btn-sm"> Precio orden ascendente</button>
+        <button id="relevancia" class="btn btn-outline-secondary btn-sm"> Relevancia descendente</button>
       </div>
     </div>
   </div>
+
+
+
   <div class="container p-5">
-    <div id="prodHTML"></div>
+    <div class="row" id="prodHTML"></div>    
+
   </div>
-  </div>
+  
+
   <footer class="text-muted bg-light">
     <div class="container">
       <p class="float-right">
