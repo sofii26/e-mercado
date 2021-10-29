@@ -52,18 +52,22 @@ diane.addEventListener("click", function () {
 
 })
 
-function edadBien(edad) {
-
-    if (edad.value < 18) {
-        return false
+function edadBien() { // esta función la pongo luego junto con el checkValidity(). El problema es que creo que no hace nada. 
+    // yo pretendo que cuando el valor del input sea menor a 18 no se guarden los datos, pero se guardan igual y se envía el formulario. La forma que 
+    // tuve de arreglar eso fue poniéndole un mínimo al inputEdad en el html y ahí ya no se guardan los datos cuando es menos de 18. Pero si
+    // saco ese min="18" del html y en el input pongo algo menor a 18 no se detiene el envío, aunque tenga el !edadBien() en el if dentro del form.addEventListener.
+    // No sé si hay algo mal con la función, probé poniéndole un parámetro y tampoco pude.
+edad = document.getElementById("inputEdad").value
+    if (edad > 18) {
+        return true
     }
     else {
-        return true
+        return false
     }
 }
 var forms = document.querySelectorAll('.needs-validation')
 
-// Loop over them and prevent submission
+
 Array.prototype.slice.call(forms)
 
     .forEach(function (form) {
@@ -74,7 +78,7 @@ Array.prototype.slice.call(forms)
             let inputEdad = document.getElementById("inputEdad");
             let inputTelefono = document.getElementById("inputTelefono");
             let inputnya = document.getElementById("inputnya");
-            if (!form.checkValidity() || !edadBien(inputEdad)) {
+            if (!form.checkValidity() && !edadBien()) {
                 event.preventDefault()
                 event.stopPropagation()
 
@@ -133,7 +137,6 @@ function eliminarFoto() {
     document.getElementById("diane").classList.remove("selected");
 
 }
-
 
 
 
