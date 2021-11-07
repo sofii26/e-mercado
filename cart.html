@@ -42,14 +42,14 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        
-          <div class="container d-flex flex-column flex-md-row justify-content-between">
+
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
           <a class="py-2" aria-current="page" href="inicio.html">Inicio</a>
           <a class="py-2" href="categories.html">Categorías</a>
           <a class="py-2" href="products.html">Productos</a>
           <a class="py-2" href="sell.html">Vender</a>
-          
-          
+
+
           <div class="dropdown">
             <button class="btn btn-dark dropdown-toggle py-2" id="NombreDeUsuario" , style="color:white" type="button"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -62,93 +62,133 @@
             </div>
           </div>
         </div>
-        
-        
+
+
       </div>
     </div>
   </nav>
-  
+
   <div class="text-center p-4">
     <h2>Carrito</h2>
 
   </div>
   <div class="container">
-    <div class="col-sm-5 col-md-5 col-lg-4 float-right align-self-end">
+    <div class="col-sm-5 col-md-5 col-lg-5 float-right align-self-end">
 
 
-     
+
 
       <div>
 
         <h5 style="text-align:center">Método de envío</h5>
         <hr>
-        <p>País: <select class="custom-select" style="width:200px;" aria-label=".form-select-lg example">
-
-            <option value="1">Uruguay</option>
-            <option value="2">Argentina</option>
-            <option value="3">Paraguay</option>
-          </select></p>
-        <p>Dirección: <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"></p>
-
-        <p>
-          <a id="seleccionEnvio" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-            aria-controls="collapseExample">
-            Seleccionar tipo de envío
-          </a>
-
-        </p>
-        <div class="collapse" id="collapseExample">
-          <div class="card card-body">
-            <div>
-              <p><input type="radio" name="envio"> Premium (2-5 días)</p>
-              <p><input type="radio" name="envio"> Express (5-8 días)</p>
-              <p><input type="radio" name="envio"> Standard (12 a 15 días) </p>
-            </div>
-          </div>
-        </div>
-      </div>
 
 
-      <div>
 
-        <p>
-          <a id="seleccionPago" data-toggle="collapse" href="#collapseEx" role="button" aria-expanded="false"
-            aria-controls="collapseExample">
+
+        <div>
+          <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#staticBackdrop">
             Seleccionar forma de pago
-          </a>
+          </button>
 
-        </p>
-        <div class="collapse" id="collapseEx">
-          <div class="card card-body">
-            <div>
-              <p><input name="pago" type="radio" data-toggle="collapse" data-target=".collapseOne:not(.in)"/> Tarjeta
-              </p>
-              <div class="collapseOne panel-collapse collapse"> <p> Número de tarjeta: </p><input type="text" class="form-control"  aria-describedby="basic-addon3"> </div>
-              <p><input type="radio" name="pago"> Transferencia bancaria</p>
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Forma de pago</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div>
+                    <p><input name="pago" class="afuera" id="tarjeta" type="radio" data-toggle="collapse"
+                        data-target=".collapseOne:not(.in)" />
+                      Tarjeta
+                    </p>
+                    <p> Número de tarjeta: </p><input type="text" id= "numTarjeta" class="form-control afuera"
+                      aria-describedby="basic-addon3" required>
+                    <br>
+                    <p><input type="radio" id="bancaria" class="afuera" name="pago"> Transferencia bancaria</p>
+                    <p> Número de cuenta: </p><input type="text" id ="numCuenta" class="form-control afuera"
+                      aria-describedby="basic-addon3" required>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" id="aceptar">Aceptar</button>
+                </div>
+              </div>
             </div>
           </div>
+
+
         </div>
 
-      </div>
-      <hr>
-      <p>Costo de envío: </p>
-      <div id="costoEnvio"></div>
+        <hr>
+       
+        <form id="myForm" class="needs-validation" novalidate>
+          <p>País: <select class="custom-select" style="width:200px;" aria-label=".form-select-lg example">
 
-      <hr>
-      <p class="text-right">Total:
-      <span id="total"></span>
-      </p>
+              <option value="1">Uruguay</option>
+              <option value="2">Argentina</option>
+              <option value="3">Paraguay</option>
+            </select></p>
 
-      <button id="boton-compra" class="btn btn-success mb-4">Realizar compra</button>
+          <p>Calle: <input type="text" class="form-control adentro" id="calle" aria-describedby="basic-addon3"
+              required></p>
+          <p>Número: <input type="text" class="form-control adentro" aria-describedby="basic-addon3" id="num" required></p>
+          <p>Esquina: <input type="text" class="form-control adentro" aria-describedby="basic-addon3" id="esq" required></p>
+
+          <p>
+            <a id="seleccionEnvio" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+              aria-controls="collapseExample">
+              Seleccionar tipo de envío
+            </a>
+
+          </p>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+              <div>
+                <p><input type="radio" onchange="calcEnvio()" id="premium" class="adentro" name="envio"> Premium (2-5
+                  días) 15% sobre el subtotal.
+                </p>
+                <p><input type="radio" onchange="calcEnvio()" id="express" class="adentro" name="envio"> Express (5-8
+                  días) 7% sobre el subtotal.</p>
+                <p><input type="radio" onchange="calcEnvio()" id="standard" class="adentro" name="envio"> Standard (12 a
+                  15 días) 5% sobre el subtotal.
+                </p>
+              </div>
+
+            </div>
+            <br>
+          </div>
+      </div> 
+      <p>Subtotal:
+          <span id="total"></span> UYU
+        </p>
+        <div id="costoEnvio"></div>
+
+        <hr>
+      <button id="compra" class="btn btn-success mb-4">Realizar compra</button>
+      </form>
+
+      
+
     </div>
   </div>
 
+
   <div id="art" class="row"></div>
-  <hr>
+
 
 
   </div>
   </div>
+ 
+  
 
   <div id="spinner-wrapper">
     <div class="lds-ring">

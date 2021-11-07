@@ -179,3 +179,9 @@ margin-left: 200;
   zoom: 1.3;
   
 }
+#inicioBody {
+  background-image: url("bgb.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  }
