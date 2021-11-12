@@ -6,6 +6,10 @@ var article;
 let premium = document.getElementById("premium");
 let express = document.getElementById("express");
 let standard = document.getElementById("standard");
+let tarjeta = document.getElementById("tarjeta");
+let bancaria = document.getElementById("bancaria");
+let numTarjeta = document.getElementById("numTarjeta");
+let numCuenta = document.getElementById("numCuenta");
 function calcularTotal() {
     let total = 0
     let subs = document.getElementsByClassName("subtotal");
@@ -105,33 +109,52 @@ function validacion() {
     if (calle.value == "") {
         flag = false;
         msg += "Falta la calle "
+        calle.classList.add("inv")
+    }
+    else {
+        calle.classList.remove("inv")
     }
     let numero = document.getElementById("num");
     if (numero.value == "") {
         flag = false;
+        numero.classList.add("inv")
         msg += "Falta el número "
+    }
+    else {
+        numero.classList.remove("inv")
     }
     let esq = document.getElementById("esq");
     if (esq.value == "") {
         flag = false;
         msg += "Falta la esquina "
+        esq.classList.add("inv")
+    }
+    else {
+        esq.classList.remove("inv")
     }
 
 
     if (!premium.checked && !standard.checked && !express.checked) {
         flag = false;
         msg += "Elige un tipo de envío "
+        document.getElementById("env").innerHTML = " Elige envío"
     }
-    let tarjeta = document.getElementById("tarjeta");
-    let bancaria = document.getElementById("bancaria");
-    let numTarjeta = document.getElementById("numTarjeta");
-    let numCuenta = document.getElementById("numCuenta");
+    else {
+        document.getElementById("env").innerHTML = ""
+    }
+
     if (!tarjeta.checked && !bancaria.checked || ((tarjeta.checked && numTarjeta.value == "") || (bancaria.checked && numCuenta.value == ""))) {
         flag = false;
         msg += "Elige forma de pago"
+        document.getElementById("pag").innerHTML = "Elige forma de pago"
+    }
+    else {
+        document.getElementById("pag").innerHTML = ""
     }
 
     alert(msg);
+    
+
     return flag;
 }
 
@@ -142,12 +165,41 @@ form.addEventListener('submit', function (event) {
         event.preventDefault()
         event.stopPropagation()
     } else {
+
         alert("¡Compra realizada con éxito!")
         
+
     }
 })
 
 
+let aceptar = document.getElementById("aceptar");
+aceptar.addEventListener("click", function () {
+
+    if ((bancaria.checked && numCuenta.value.length > 0) || (tarjeta.checked && numTarjeta.value.length > 0)) {
+        $("#staticBackdrop").modal('hide');
+        numCuenta.classList.remove("inv");
+        numTarjeta.classList.remove("inv")
+        document.getElementById("feedbackk").innerHTML = ""
+    }
+    if (bancaria.checked && numCuenta.value === "") {
+        numCuenta.classList.add("inv")
+        numTarjeta.classList.remove("inv")
+        document.getElementById("feedbackk").innerHTML = ""
+    }
+    if (tarjeta.checked && numTarjeta.value === "") {
+        numTarjeta.classList.add("inv")
+        numCuenta.classList.remove("inv")
+        document.getElementById("feedbackk").innerHTML = ""
+    }
+    if (!tarjeta.checked && !bancaria.checked) {
+        
+
+        document.getElementById("feedbackk").innerHTML = "Elige una de las opciones para continuar"
+    }
+
+}
+)
 
 
 document.addEventListener("DOMContentLoaded", function (e) {

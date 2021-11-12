@@ -87,6 +87,7 @@
 
 
         <div>
+          <div style="color:red" id="pag"></div>
           <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#staticBackdrop">
             Seleccionar forma de pago
           </button>
@@ -104,6 +105,7 @@
                 </div>
                 <div class="modal-body">
                   <div>
+                    <div id="feedbackk" style="color:red"></div>
                     <p><input name="pago" class="afuera" id="tarjeta" type="radio" data-toggle="collapse"
                         data-target=".collapseOne:not(.in)" />
                       Tarjeta
@@ -118,7 +120,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-primary" data-dismiss="modal" id="aceptar">Aceptar</button>
+                  <button type="submit" class="btn btn-primary"  id="aceptar">Aceptar</button>
                 </div>
               </div>
             </div>
@@ -139,14 +141,18 @@
 
           <p>Calle: <input type="text" class="form-control adentro" id="calle" aria-describedby="basic-addon3"
               required></p>
-          <p>Número: <input type="text" class="form-control adentro" aria-describedby="basic-addon3" id="num" required></p>
+             
+
+          <p>Número: <input type="text" class="form-control adentro" aria-describedby="basic-addon3" id="num" required></p> 
+          
+        
           <p>Esquina: <input type="text" class="form-control adentro" aria-describedby="basic-addon3" id="esq" required></p>
 
           <p>
             <a id="seleccionEnvio" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
               aria-controls="collapseExample">
               Seleccionar tipo de envío
-            </a>
+            </a> <span style="color:red; float:right" id="env"></span>
 
           </p>
           <div class="collapse" id="collapseExample">
@@ -167,7 +173,7 @@
           </div>
       </div> 
       <p>Subtotal:
-          <span id="total"></span> UYU
+          <span id="total"></span> 
         </p>
         <div id="costoEnvio"></div>
 
