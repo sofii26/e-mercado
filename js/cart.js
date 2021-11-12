@@ -165,10 +165,7 @@ form.addEventListener('submit', function (event) {
         event.preventDefault()
         event.stopPropagation()
     } else {
-
         alert("¡Compra realizada con éxito!")
-
-
     }
 })
 
