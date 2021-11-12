@@ -94,8 +94,8 @@ function calcEnvio() {
     let totalyenvio = total + envio;
     let texto = `
     
-    <p> Costo de envío: ${envio}</p>    
-    <p class= "text-right"> Total con envío: ${totalyenvio} </p>
+    <p> Costo de envío: $${envio} </p>    
+    <p class= "text-right"> Total con envío: $${totalyenvio} </p>
     `
     document.getElementById("costoEnvio").innerHTML = texto;
 }
@@ -167,7 +167,7 @@ form.addEventListener('submit', function (event) {
     } else {
 
         alert("¡Compra realizada con éxito!")
-        
+
 
     }
 })
